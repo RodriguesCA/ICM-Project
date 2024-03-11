@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "package:yellowfy/welcome.dart";
+import "package:yellowfy/shop.dart";
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,29 @@ class MyAppState extends ChangeNotifier {
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              appState.userName,
+              style: TextStyle(fontSize: 18),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ShopPage()),
+                );
+              },
+              icon: Icon(Icons.shopping_cart),
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Text('Main Page'),
       ),
