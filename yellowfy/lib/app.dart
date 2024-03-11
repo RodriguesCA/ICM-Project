@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import "package:google_maps_flutter/google_maps_flutter.dart";
 import "package:yellowfy/welcome.dart";
 import "package:yellowfy/shop.dart";
 
@@ -38,6 +39,7 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -56,9 +58,29 @@ class MainPage extends StatelessWidget {
             ),
           ],
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1.0),
+          child: Divider(color: Colors.black.withOpacity(1)),
+        ),
       ),
-      body: Center(
-        child: Text('Main Page'),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: GoogleMap(
+            myLocationEnabled: true,
+            initialCameraPosition: CameraPosition(
+              target: LatLng(40.6412, -8.65362),
+              zoom: 11.5
+            ),
+            zoomControlsEnabled: true,
+            myLocationButtonEnabled: false,
+            mapType: MapType.normal,
+          ),
+        ),
       ),
     );
   }

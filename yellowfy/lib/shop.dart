@@ -27,6 +27,10 @@ class ShopPage extends StatelessWidget {
             ),
           ],
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1.0),
+          child: Divider(color: Colors.black.withOpacity(1)),
+        ),
       ),
       body: Center(child: Text("Shop Page"))
     );
