@@ -8,31 +8,31 @@ class ShopPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              appState.userName,
-              style: TextStyle(fontSize: 18),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ShopPage()),
-                );
-              },
-              icon: Icon(Icons.shopping_cart),
-            ),
-          ],
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                appState.userName,
+                style: TextStyle(fontSize: 18),
+              ),
+              Row(
+                children: [
+                  Icon(Icons.shopping_cart),
+                  SizedBox(width: 8), // Add some space between icon and points
+                  Text(
+                    '${appState.points}', // Display points from appState
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(1.0),
+            child: Divider(color: Colors.black.withOpacity(1)),
+          ),
         ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Divider(color: Colors.black.withOpacity(1)),
-        ),
-      ),
-      body: Center(child: Text("Shop Page"))
-    );
+        body: Center(child: Text("Shop Page")));
   }
 }

@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       create: (context) => MyAppState(),
       child: MaterialApp(
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(54, 201, 255, 1)),
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: Color.fromRGBO(54, 201, 255, 1)),
           useMaterial3: true,
         ),
         home: WelcomePage(),
@@ -28,8 +29,12 @@ class MyApp extends StatelessWidget {
 
 class MyAppState extends ChangeNotifier {
   String userName = '';
-	List<String> language = ["PT", "EN"];
+  List<String> language = ["PT", "EN"];
   String currentLanguage = "EN";
+
+  get points => null;
+
+  set password(password) {}
 }
 
 class MainPage extends StatelessWidget {
@@ -72,10 +77,8 @@ class MainPage extends StatelessWidget {
           ),
           child: GoogleMap(
             myLocationEnabled: true,
-            initialCameraPosition: CameraPosition(
-              target: LatLng(40.6412, -8.65362),
-              zoom: 11.5
-            ),
+            initialCameraPosition:
+                CameraPosition(target: LatLng(40.6412, -8.65362), zoom: 11.5),
             zoomControlsEnabled: true,
             myLocationButtonEnabled: false,
             mapType: MapType.normal,
