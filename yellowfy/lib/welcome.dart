@@ -17,7 +17,6 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       backgroundColor: Colors.blueAccent[100],
       appBar: AppBar(
-        title: Text('FindingAveiro'),
         backgroundColor: Colors.blueAccent[100],
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -54,7 +53,7 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 200),
+              SizedBox(height: 100),
               Visibility(
                 visible: appState.currentLanguage == "EN",
                 child: Column(
@@ -97,7 +96,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 200),
+              SizedBox(height: 100),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
@@ -148,7 +147,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
-              SizedBox(height: 120),
+              SizedBox(height: 100),
             ],
           ),
         ),

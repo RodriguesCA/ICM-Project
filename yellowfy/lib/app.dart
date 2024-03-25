@@ -32,7 +32,7 @@ class MyAppState extends ChangeNotifier {
   List<String> language = ["PT", "EN"];
   String currentLanguage = "EN";
 
-  get points => null;
+  get points => 0;
 
   set password(password) {}
 }
@@ -76,12 +76,17 @@ class MainPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: GoogleMap(
-            myLocationEnabled: true,
             initialCameraPosition:
-                CameraPosition(target: LatLng(40.6412, -8.65362), zoom: 11.5),
-            zoomControlsEnabled: true,
+                CameraPosition(target: LatLng(40.6011, -8.67039), zoom: 11.05),
+            zoomControlsEnabled: false,
             myLocationButtonEnabled: false,
-            mapType: MapType.normal,
+            myLocationEnabled: true,
+            compassEnabled: false,
+            mapToolbarEnabled: false,
+            zoomGesturesEnabled: false,
+            rotateGesturesEnabled: false,
+            scrollGesturesEnabled: false,
+            tiltGesturesEnabled: false,
           ),
         ),
       ),

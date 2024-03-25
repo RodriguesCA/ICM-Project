@@ -18,10 +18,10 @@ class ShopPage extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(Icons.shopping_cart),
-                  SizedBox(width: 8), // Add some space between icon and points
+                  Icon(Icons.attach_money),
+                  SizedBox(width: 8),
                   Text(
-                    '${appState.points}', // Display points from appState
+                    '${appState.points}',
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
