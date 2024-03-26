@@ -37,7 +37,17 @@ class MyAppState extends ChangeNotifier {
   set password(password) {}
 }
 
+// ignore: must_be_immutable
 class MainPage extends StatelessWidget {
+  List<LatLng> polygonPointsDETI = [
+    LatLng(40.63411629444288, -8.659466411798816),
+    LatLng(40.63352638753002, -8.658654025719308),
+    LatLng(40.63303851827448, -8.658742646464201),
+    LatLng(40.633044602075735, -8.660020414380888),
+    LatLng(40.63334070077914, -8.660414484355272),
+  ];
+  // AFONSO ADICIONA AQUI OS OUTROS ARRAYS QUE FALTAM
+
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -66,7 +76,7 @@ class MainPage extends StatelessWidget {
       ),
       body: GoogleMap(
         initialCameraPosition:
-          CameraPosition(target: LatLng(40.6011, -8.67039), zoom: 11.05),
+            CameraPosition(target: LatLng(40.6011, -8.67039), zoom: 11.05),
         zoomControlsEnabled: true,
         myLocationButtonEnabled: false,
         myLocationEnabled: true,
@@ -75,17 +85,17 @@ class MainPage extends StatelessWidget {
             markerId: MarkerId("1"),
             position: LatLng(40.6332, -8.6595),
             icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueAzure),
+                BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
               title: "DETI",
-                snippet: "Central da depressão",
+              snippet: "Central da depressão",
             ),
           ),
           Marker(
             markerId: MarkerId("2"),
             position: LatLng(40.6364, -8.6531),
             icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueAzure),
+                BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
               title: "Parque da Macaca",
               snippet: "Central do Assalto",
@@ -105,12 +115,18 @@ class MainPage extends StatelessWidget {
             markerId: MarkerId("3"),
             position: LatLng(40.6341, -8.6600),
             icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueAzure),
+                BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
               title: "IT",
               snippet: "Money Grabers",
             ),
           ),
+        },
+        polygons: {
+          Polygon(
+              polygonId: PolygonId("1"),
+              points: polygonPointsDETI,
+              fillColor: Colors.black),
         },
       ),
     );
