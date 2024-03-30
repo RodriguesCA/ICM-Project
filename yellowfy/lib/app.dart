@@ -125,45 +125,86 @@ class MainPage extends StatelessWidget {
         markers: {
           Marker(
             markerId: MarkerId("1"),
-            position: LatLng(40.6332, -8.6595),
+            position: LatLng(40.63124776919864, -8.65833370283157),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
-              title: "DETI",
-              snippet: "Central da depressão",
+              title: "Universidade de Aveiro",
             ),
           ),
           Marker(
             markerId: MarkerId("2"),
-            position: LatLng(40.6364, -8.6531),
+            position: LatLng(40.63617226081232, -8.652882809036974),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
               title: "Parque da Macaca",
-              snippet: "Central do Assalto",
             ),
           ),
           Marker(
             markerId: MarkerId("3"),
-            position: LatLng(40.6441, -8.6564),
+            position: LatLng(40.64176461783421, -8.649972708817357),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
               title: "Ponte do laço",
-              snippet: "Che grande beijo",
             ),
           ),
           Marker(
             markerId: MarkerId("3"),
-            position: LatLng(40.6341, -8.6600),
+            position: LatLng(40.62972748764886, -8.663462291914996),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             infoWindow: InfoWindow(
-              title: "IT",
-              snippet: "Money Grabers",
+              title: "Posto de observação da Marinha de Santiago",
             ),
           ),
-          // Adicionar Paredão da Barra, Farol da Barra, Casas da Costa Nova, Praia da Costa Nova, Salinas, Passadiços de Aveiro, Uni/Ponte do Crasto (?), Fábrica, Praça, Estação (?)
+          Marker(
+            markerId: MarkerId("4"),
+            position: LatLng(40.64133876097525, -8.753384474257963),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Paredão da Barra",
+            ),
+          ),
+          Marker(
+            markerId: MarkerId("5"),
+            position: LatLng(40.6430253320752, -8.747768730329302),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Farol da Barra",
+            ),
+          ),
+          Marker(
+            markerId: MarkerId("6"),
+            position: LatLng(40.61320949382517, -8.749690353509733),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Casas da Costa Nova",
+            ),
+          ),
+          Marker(
+            markerId: MarkerId("7"),
+            position: LatLng(40.61763082057533, -8.75341613219714),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Praia da Costa Nova",
+            ),
+          ),
+          Marker(
+            markerId: MarkerId("8"),
+            position: LatLng(40.64519314854355, -8.6627333933357),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Salinas de Aveiro",
+            ),
+          ),
+          // Adicionar Fábrica, Praça, Estação (?)
         },
         polygons: {
            Polygon(
