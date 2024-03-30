@@ -39,7 +39,7 @@ class MyAppState extends ChangeNotifier {
 
 // ignore: must_be_immutable
 class MainPage extends StatelessWidget {
-  List<LatLng> polygonPointsIT = [
+  List<LatLng> polygonPointsUni = [
     LatLng(40.63787867676456, -8.65856742392844),  // top left corner
     LatLng(40.63361546575474, -8.661243742835701),  // bottom left corner
     LatLng(40.62004155057745, -8.658948487500192),  // bottom right corner
@@ -50,7 +50,7 @@ class MainPage extends StatelessWidget {
     LatLng(40.63338985277366, -8.648786538128617),  // extra
     LatLng(40.6399927705059, -8.655116460602876),  // top left corner
     LatLng(40.63787867676456, -8.65856742392844),  // bottom left corner
-    LatLng(40.63056521992064, -8.654170248456797),  // bottom right corner
+    LatLng(40.63066400728303, -8.653815495400446),  // bottom right corner
   ];
   List<LatLng> polygonPointsSalinas = [
     LatLng(40.64584894137766, -8.662885293949005),  // top left corner
@@ -88,7 +88,29 @@ class MainPage extends StatelessWidget {
     LatLng(40.63361546575474, -8.661243742835701),  // extra
     LatLng(40.63787867676456, -8.65856742392844),  // top right corner
   ];
-  // AFONSO ADICIONA AQUI OS OUTROS ARRAYS QUE FALTAM
+  List<LatLng> polygonPointsPraca = [
+    LatLng(40.64302240946543, -8.659765781903431),  // top left corner
+    LatLng(40.651240505405895, -8.645279160695267), // top right corner
+    LatLng(40.64406001340473, -8.641126114819752),  // bottom right corner
+    LatLng(40.64089602753747, -8.657386395925464),  // bottom left corner
+  ];
+  List<LatLng> polygonPointsPontes = [
+    LatLng(40.64089602753747, -8.657386395925464),  // bottom left corner
+    LatLng(40.639593752531106, -8.655944809760609), // extra
+    LatLng(40.6399927705059, -8.655116460602876),   // extra
+    LatLng(40.63749526174772, -8.652744098440001),  // bottom right corner
+    LatLng(40.64101637820578, -8.641803370634964),  // top right corner
+    LatLng(40.64406001340473, -8.641126114819752),  // top left corner
+  ];
+  List<LatLng> polygonPointsFabrica = [
+    LatLng(40.64101637820578, -8.641803370634964),  // top left corner
+    LatLng(40.63749526174772, -8.652744098440001),  // bottom left corner
+    LatLng(40.63338985277366, -8.648786538128617),  // extra
+    LatLng(40.63272744890467, -8.64855518938427),   // extra
+    LatLng(40.63066400728303, -8.653815495400446),  // extra
+    LatLng(40.62452855358944, -8.64976460361052),   // bottom right corner
+    LatLng(40.630406337092076, -8.642941462098724), // top right corner
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -170,15 +192,6 @@ class MainPage extends StatelessWidget {
           ),
           Marker(
             markerId: MarkerId("5"),
-            position: LatLng(40.6430253320752, -8.747768730329302),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueAzure),
-            infoWindow: InfoWindow(
-              title: "Farol da Barra",
-            ),
-          ),
-          Marker(
-            markerId: MarkerId("6"),
             position: LatLng(40.61320949382517, -8.749690353509733),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
@@ -187,16 +200,7 @@ class MainPage extends StatelessWidget {
             ),
           ),
           Marker(
-            markerId: MarkerId("7"),
-            position: LatLng(40.61763082057533, -8.75341613219714),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueAzure),
-            infoWindow: InfoWindow(
-              title: "Praia da Costa Nova",
-            ),
-          ),
-          Marker(
-            markerId: MarkerId("8"),
+            markerId: MarkerId("6"),
             position: LatLng(40.64519314854355, -8.6627333933357),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
@@ -204,12 +208,29 @@ class MainPage extends StatelessWidget {
               title: "Salinas de Aveiro",
             ),
           ),
-          // Adicionar Fábrica, Praça, Estação (?)
+          Marker(
+            markerId: MarkerId("7"),
+            position: LatLng(40.63900901159566, -8.643644005566529),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Fábrica",
+            ),
+          ),
+          Marker(
+            markerId: MarkerId("8"),
+            position: LatLng(40.6426890118189, -8.655488216087377),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueAzure),
+            infoWindow: InfoWindow(
+              title: "Praça",
+            ),
+          ),
         },
         polygons: {
            Polygon(
             polygonId: PolygonId("1"),
-            points: polygonPointsIT,
+            points: polygonPointsUni,
             fillColor: Colors.grey,
             strokeWidth: 2,
           ),
@@ -238,8 +259,26 @@ class MainPage extends StatelessWidget {
             strokeWidth: 2,
           ),
           Polygon(
-            polygonId: PolygonId(""),
+            polygonId: PolygonId("6"),
             points: polygonPointsPassadicos,
+            fillColor: Colors.grey,
+            strokeWidth: 2,
+          ),
+          Polygon(
+            polygonId: PolygonId("7"),
+            points: polygonPointsPraca,
+            fillColor: Colors.grey,
+            strokeWidth: 2,
+          ),
+          Polygon(
+            polygonId: PolygonId("8"),
+            points: polygonPointsPontes,
+            fillColor: Colors.grey,
+            strokeWidth: 2,
+          ),
+          Polygon(
+            polygonId: PolygonId("9"),
+            points: polygonPointsFabrica,
             fillColor: Colors.grey,
             strokeWidth: 2,
           ),
