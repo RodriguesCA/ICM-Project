@@ -13,17 +13,26 @@ dependencies:
     sdk: flutter
 
   provider: ^6.0.0
+  google_maps_flutter: ^2.0.2
+  # mobile_scanner: ^4.0.1
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^2.0.0
   dio: ^4.0.0
-  google_maps_flutter: ^2.0.2
 
 flutter:
   uses-material-design: true
   assets:
     - assets/question-sign.png
-    - assets/map.json
+    - assets/ua.jpg
+    - assets/casas.jpeg
+    - assets/fabrica.jpg
+    - assets/laços.jpg
+    - assets/macaca.jpg
+    - assets/paredão.jpg
+    - assets/posto.jpg
+    - assets/praça.jpg
+    - assets/salinas.jpg
