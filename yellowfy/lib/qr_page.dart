@@ -9,29 +9,27 @@ class QRPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              appState.userName,
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                appState.userName,
+                style: TextStyle(fontSize: 18),
+              ),
+            ],
+          ),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(1.0),
+            child: Divider(color: Colors.black.withOpacity(1)),
+          ),
         ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Divider(color: Colors.black.withOpacity(1)),
-        ),
-      ),
-      body: Center(
-        child: QrImageView(
-          data: 'Desbloqueia',
+        body: Center(
+            child: QrImageView(
+          data: appState.userName,
           version: QrVersions.auto,
           size: 320,
           gapless: false,
-        )
-      )
-    );
+        )));
   }
 }
