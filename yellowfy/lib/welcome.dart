@@ -137,10 +137,18 @@ class _WelcomePageState extends State<WelcomePage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MainPage()),
-                  );
+                  if (appState.userName == '' || appState.password == '') {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text( appState.currentLanguage == 'EN' ? "Insert a username and password!" : "Insira um nome e palavra-passe!")
+                          )
+                      );
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainPage()),
+                    );
+                  }
                 },
                 child: Text(
                   appState.currentLanguage == "EN" ? 'Login' : 'Login',

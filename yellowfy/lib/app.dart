@@ -90,15 +90,21 @@ class MyApp extends StatelessWidget {
 
 class MyAppState extends ChangeNotifier {
   String userName = '';
+  String password = '';
   List<String> language = ["PT", "EN"];
   String currentLanguage = "EN";
-  bool isLocked = false;
-  get points => 100;
-  set points(points) {
+
+  int points = 100;
+
+  void addPoints(int p) {
+    points += p;
     notifyListeners();
   }
 
-  set password(password) {}
+  void takePoints(int p) {
+    points -= p;
+    notifyListeners();
+  }
 }
 
 // ignore: must_be_immutable

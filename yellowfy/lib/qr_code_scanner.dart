@@ -75,8 +75,8 @@ class _QRScannerPageState extends State<QRScannerPage> {
                       final List<Barcode> barcodes = capture.barcodes;
                       for (final barcode in barcodes) {
                         if(!isScanCompleted) {
-                          String code = barcode.rawValue ?? '---' ;    // Result of Scanning the QR code
-                          debugPrint(code);
+                          String points = barcode.rawValue ?? '0' ;    // Result of Scanning the QR code = amount of points it gives
+                          appState.addPoints(int.parse(points));
                           isScanCompleted = true;
                           Navigator.push(
                             context, 

@@ -5,14 +5,14 @@ import 'package:yellowfy/qr_page.dart';
 
 class ShopPage extends StatelessWidget {
   final List<Offer> offers = [
-    Offer(name: 'Ramona', pointsRequired: 100, discount: 10),
-    Offer(name: 'Moliceiro Ride', pointsRequired: 200, discount: 10),
-    Offer(name: 'Tripas da Praça', pointsRequired: 300, discount: 50),
-    Offer(name: 'Confeitaria Peixinho', pointsRequired: 500, discount: 30),
-    Offer(name: 'X&Records', pointsRequired: 1000, discount: 50),
-    Offer(name: 'Museu de Aveiro', pointsRequired: 2000, discount: 50),
-    Offer(name: 'SublimeVilla', pointsRequired: 5000, discount: 50),
-    Offer(name: 'Milano', pointsRequired: 10000, discount: 50),
+    Offer(name: 'Ramona', pointsRequired: 100, discount: 10, isRedeemed: false),
+    Offer(name: 'Moliceiro Ride', pointsRequired: 200, discount: 10, isRedeemed: false),
+    Offer(name: 'Tripas da Praça', pointsRequired: 300, discount: 50, isRedeemed: false),
+    Offer(name: 'Confeitaria Peixinho', pointsRequired: 500, discount: 30, isRedeemed: false),
+    Offer(name: 'X&Records', pointsRequired: 1000, discount: 50, isRedeemed: false),
+    Offer(name: 'Museu de Aveiro', pointsRequired: 2000, discount: 50, isRedeemed: false),
+    Offer(name: 'SublimeVilla', pointsRequired: 5000, discount: 50, isRedeemed: false),
+    Offer(name: 'Milano', pointsRequired: 10000, discount: 50, isRedeemed: false),
   ];
   @override
   Widget build(BuildContext context) {
@@ -54,12 +54,23 @@ class ShopPage extends StatelessWidget {
               title: Text(offer.name),
               subtitle: Text(
                   'Points Required: ${offer.pointsRequired}\nDiscount: ${offer.discount}%'),
-              trailing: ElevatedButton(
+              trailing: offer.isRedeemed
+                ? ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QRPage(),
+                      ),
+                    );
+                  }, 
+                  child: Text('Use')
+                )
+                : ElevatedButton(
                 onPressed: () {
                   if (appState.points >= offer.pointsRequired) {
-                    // Deduct points
-                    appState.points -= offer.pointsRequired;
-                    // Navigate to QRPage and pass offer data
+                    offer.isRedeemed = true;
+                    appState.takePoints(offer.pointsRequired);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -102,10 +113,12 @@ class Offer {
   final String name;
   final int pointsRequired;
   final int discount;
+  bool isRedeemed;
 
   Offer({
     required this.name,
     required this.pointsRequired,
     required this.discount,
+    required this.isRedeemed
   });
 }
