@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import "package:yellowfy/app.dart";
-import 'package:qr_flutter/qr_flutter.dart';
+import "package:yellowfy/qr_overlay.dart";
+
 
 
 class QRScannerPage extends StatefulWidget {
@@ -12,8 +13,6 @@ class QRScannerPage extends StatefulWidget {
 
 class _QRScannerPageState extends State<QRScannerPage> {
   bool isScanCompleted = false;
-
-  void closeScreen() { isScanCompleted = false; }
 
   @override
   Widget build(BuildContext context) {
@@ -64,23 +63,35 @@ class _QRScannerPageState extends State<QRScannerPage> {
                 ],
               )
             ),
-            //Expanded(
-            //  flex: 4,
-            //  child: // MobileScanner(
-                //onDetect: (barcode) {
-                //  if(!isScanCompleted) {
-                //    String code = barcode.raw ?? '---' ;    // Result of Scanning the QR code
-                //   isScanCompleted = true;
-                //    Navigator.push(
-                //      context, 
-                //      MaterialPageRoute(
-                //        builder: (context) => MainPage()
-                //      )
-                //    );
-                //   }
-             //  },
-            //  )
-          //  ),
+            Expanded(
+              flex: 4,
+              child: Stack(
+                children: [
+                  MobileScanner(
+                    controller: MobileScannerController(
+                      detectionSpeed: DetectionSpeed.noDuplicates
+                    ),
+                    onDetect: (capture) {
+                      final List<Barcode> barcodes = capture.barcodes;
+                      for (final barcode in barcodes) {
+                        if(!isScanCompleted) {
+                          String code = barcode.rawValue ?? '---' ;    // Result of Scanning the QR code
+                          debugPrint(code);
+                          isScanCompleted = true;
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context) => MainPage()
+                            )
+                          );
+                        }
+                      }  
+                    },
+                  ),
+                  const QRScannerOverlay(overlayColour: Color(0xFFFAFAFA),)
+                ],
+              )
+            ),
           ],
         ),
       )

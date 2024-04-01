@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "package:google_maps_flutter/google_maps_flutter.dart";
+import 'package:yellowfy/qr_code_scanner.dart';
 import "package:yellowfy/welcome.dart";
 import "package:yellowfy/shop.dart";
-// import "package:yellowfy/qr_code_scanner.dart";
-import 'package:yellowfy/qr_page.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +49,7 @@ void _showMarkerPopup(BuildContext context, String title, String description, St
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QRPage()),
+                  MaterialPageRoute(builder: (context) => QRScannerPage()),
                 );
               },
               child: Text('Scan QR Code'),
@@ -95,7 +93,10 @@ class MyAppState extends ChangeNotifier {
   List<String> language = ["PT", "EN"];
   String currentLanguage = "EN";
   bool isLocked = false;
-  get points => 0;
+  get points => 100;
+  set points(points) {
+    notifyListeners();
+  }
 
   set password(password) {}
 }
@@ -340,7 +341,7 @@ class MainPage extends StatelessWidget {
             polygonId: PolygonId("2"),
             points: polygonPointsParqueMacaca,
             fillColor: Colors.grey,
-            strokeWidth: 2,
+            strokeWidth: 2, 
           ),
           Polygon(
             polygonId: PolygonId("3"),
