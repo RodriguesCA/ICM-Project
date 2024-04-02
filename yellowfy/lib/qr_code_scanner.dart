@@ -7,13 +7,17 @@ import "package:yellowfy/qr_overlay.dart";
 
 
 class QRScannerPage extends StatefulWidget {
+  final String id;
+
+  const QRScannerPage(this.id);
+
   @override
   State<QRScannerPage> createState() => _QRScannerPageState();
 }
 
 class _QRScannerPageState extends State<QRScannerPage> {
   bool isScanCompleted = false;
-
+  
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -78,6 +82,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
                           String points = barcode.rawValue ?? '0' ;    // Result of Scanning the QR code = amount of points it gives
                           appState.addPoints(int.parse(points));
                           isScanCompleted = true;
+                          appState.isUnlocked[widget.id] = true;
                           Navigator.push(
                             context, 
                             MaterialPageRoute(

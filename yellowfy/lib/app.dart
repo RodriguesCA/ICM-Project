@@ -9,7 +9,7 @@ void main() {
   runApp(const MyApp());
 }
 
-void _showMarkerPopup(BuildContext context, String title, String description, String path) {
+void _showMarkerPopup(BuildContext context, String title, String description, String path, String id) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -49,7 +49,7 @@ void _showMarkerPopup(BuildContext context, String title, String description, St
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QRScannerPage()),
+                  MaterialPageRoute(builder: (context) => QRScannerPage(id)),
                 );
               },
               child: Text('Scan QR Code'),
@@ -95,6 +95,18 @@ class MyAppState extends ChangeNotifier {
   String currentLanguage = "EN";
 
   int points = 100;
+
+  Map<String, bool> isUnlocked = {
+    "1": false,
+    "2": false,
+    "3": false,
+    "4": false,
+    "5": false,
+    "6": false,
+    "7": false,
+    "8": false,
+    "9": false,
+  };
 
   void addPoints(int p) {
     points += p;
@@ -225,7 +237,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Universidade de Aveiro",
                 "Description of the University",
-                'assets/ua.jpg'
+                'assets/ua.jpg',
+                "1"
               );
             },
           ),
@@ -238,7 +251,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Parque da Macaca",
                 "Description of the Parque",
-                'assets/macaca.jpg'
+                'assets/macaca.jpg',
+                "2"
               );
             },
           ),
@@ -252,7 +266,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Salinas de Aveiro",
                 "Description of the Salinas",
-                'assets/salinas.jpg'
+                'assets/salinas.jpg', 
+                "3"
               );
             },
           ),
@@ -265,7 +280,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Paredão da Barra",
                 "Description of the Paredão",
-                'assets/paredão.jpg'
+                'assets/paredão.jpg',
+                "4"
               );
             },
           ),
@@ -278,7 +294,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Casas da Costa Nova",
                 "Description of the Casas da Costa Nova",
-                'assets/casas.jpeg'
+                'assets/casas.jpeg',
+                "5"
               );
             },
           ),
@@ -291,7 +308,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Posto de Observação da Marinha de Santiago",
                 "Description of the Posto de Observação",
-                'assets/posto.jpg'
+                'assets/posto.jpg',
+                "6"
               );
             },
           ),
@@ -305,7 +323,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Praça do Peixe",
                 "Description of the Praça",
-                'assets/praça.jpg'
+                'assets/praça.jpg',
+                "7"
               );
             },
           ),
@@ -318,7 +337,8 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Ponte do laço",
                 "Description of the Ponte",
-                'assets/laços.jpg'
+                'assets/laços.jpg',
+                "8"
               );
             },
           ),
@@ -331,66 +351,76 @@ class MainPage extends StatelessWidget {
               _showMarkerPopup(context, 
                 "Antiga Fábrica",
                 "Description of the Antiga Fábrica",
-                'assets/fabrica.jpg'
+                'assets/fabrica.jpg',
+                "9"
               );
             },
           ),
         },
         polygons: {
-          Polygon(
-            polygonId: PolygonId("1"),
-            points: polygonPointsUni,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("2"),
-            points: polygonPointsParqueMacaca,
-            fillColor: Colors.grey,
-            strokeWidth: 2, 
-          ),
-          Polygon(
-            polygonId: PolygonId("3"),
-            points: polygonPointsSalinas,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("4"),
-            points: polygonPointsBarra,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("5"),
-            points: polygonPointsCostaNova,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("6"),
-            points: polygonPointsPassadicos,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("7"),
-            points: polygonPointsPraca,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("8"),
-            points: polygonPointsPontes,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
-          Polygon(
-            polygonId: PolygonId("9"),
-            points: polygonPointsFabrica,
-            fillColor: Colors.grey,
-            strokeWidth: 2,
-          ),
+          if(appState.isUnlocked["1"] == false)
+            Polygon(
+              polygonId: PolygonId("1"),
+              points: polygonPointsUni,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["2"] == false)
+            Polygon(
+              polygonId: PolygonId("2"),
+              points: polygonPointsParqueMacaca,
+              fillColor: Colors.grey,
+              strokeWidth: 2, 
+            ),
+          if(appState.isUnlocked["3"] == false)
+            Polygon(
+              polygonId: PolygonId("3"),
+              points: polygonPointsSalinas,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["4"] == false)
+            Polygon(
+              polygonId: PolygonId("4"),
+              points: polygonPointsBarra,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["5"] == false)
+            Polygon(
+              polygonId: PolygonId("5"),
+              points: polygonPointsCostaNova,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["6"] == false)
+            Polygon(
+              polygonId: PolygonId("6"),
+              points: polygonPointsPassadicos,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["7"] == false)
+            Polygon(
+              polygonId: PolygonId("7"),
+              points: polygonPointsPraca,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["8"] == false)
+            Polygon(
+              polygonId: PolygonId("8"),
+              points: polygonPointsPontes,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
+          if(appState.isUnlocked["9"] == false)
+            Polygon(
+              polygonId: PolygonId("9"),
+              points: polygonPointsFabrica,
+              fillColor: Colors.grey,
+              strokeWidth: 2,
+            ),
         },
       ),
     );
