@@ -9,7 +9,8 @@ void main() {
   runApp(const MyApp());
 }
 
-void _showMarkerPopup(BuildContext context, String title, String description, String path, String id) {
+void _showMarkerPopup(BuildContext context, String title, String description,
+    String path, String id) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -32,7 +33,7 @@ void _showMarkerPopup(BuildContext context, String title, String description, St
                 ),
                 Container(
                   width: 100,
-                  height: 100, 
+                  height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                   ),
@@ -122,17 +123,17 @@ class MyAppState extends ChangeNotifier {
 // ignore: must_be_immutable
 class MainPage extends StatelessWidget {
   List<LatLng> polygonPointsUni = [
-    LatLng(40.63787867676456, -8.65856742392844),  // top left corner
-    LatLng(40.63361546575474, -8.661243742835701),  // bottom left corner
-    LatLng(40.62004155057745, -8.658948487500192),  // bottom right corner
-    LatLng(40.62452855358944, -8.64976460361052),   // top right corner
+    LatLng(40.63787867676456, -8.65856742392844), // top left corner
+    LatLng(40.63361546575474, -8.661243742835701), // bottom left corner
+    LatLng(40.62004155057745, -8.658948487500192), // bottom right corner
+    LatLng(40.62452855358944, -8.64976460361052), // top right corner
   ];
   List<LatLng> polygonPointsParqueMacaca = [
-    LatLng(40.63272744890467, -8.64855518938427),  // top right corner
-    LatLng(40.63338985277366, -8.648786538128617),  // extra
-    LatLng(40.6399927705059, -8.655116460602876),  // top left corner
-    LatLng(40.63787867676456, -8.65856742392844),  // bottom left corner
-    LatLng(40.63066400728303, -8.653815495400446),  // bottom right corner
+    LatLng(40.63272744890467, -8.64855518938427), // top right corner
+    LatLng(40.63338985277366, -8.648786538128617), // extra
+    LatLng(40.6399927705059, -8.655116460602876), // top left corner
+    LatLng(40.63787867676456, -8.65856742392844), // bottom left corner
+    LatLng(40.63066400728303, -8.653815495400446), // bottom right corner
   ];
   List<LatLng> polygonPointsSalinas = [
     LatLng(40.64584894137766, -8.662885293949005), // top left corner
@@ -166,31 +167,31 @@ class MainPage extends StatelessWidget {
     LatLng(40.626249207879724, -8.682347226061006), // bottom right corner
     LatLng(40.6005038853122, -8.690439825852636), // extra
     LatLng(40.615252910083306, -8.677101677162222), // bottom left corner
-    LatLng(40.62004155057745, -8.658948487500192),  // top left corner
-    LatLng(40.63361546575474, -8.661243742835701),  // extra
-    LatLng(40.63787867676456, -8.65856742392844),  // top right corner
+    LatLng(40.62004155057745, -8.658948487500192), // top left corner
+    LatLng(40.63361546575474, -8.661243742835701), // extra
+    LatLng(40.63787867676456, -8.65856742392844), // top right corner
   ];
   List<LatLng> polygonPointsPraca = [
-    LatLng(40.64302240946543, -8.659765781903431),  // top left corner
+    LatLng(40.64302240946543, -8.659765781903431), // top left corner
     LatLng(40.651240505405895, -8.645279160695267), // top right corner
-    LatLng(40.64406001340473, -8.641126114819752),  // bottom right corner
-    LatLng(40.64089602753747, -8.657386395925464),  // bottom left corner
+    LatLng(40.64406001340473, -8.641126114819752), // bottom right corner
+    LatLng(40.64089602753747, -8.657386395925464), // bottom left corner
   ];
   List<LatLng> polygonPointsPontes = [
-    LatLng(40.64089602753747, -8.657386395925464),  // bottom left corner
+    LatLng(40.64089602753747, -8.657386395925464), // bottom left corner
     LatLng(40.639593752531106, -8.655944809760609), // extra
-    LatLng(40.6399927705059, -8.655116460602876),   // extra
-    LatLng(40.63749526174772, -8.652744098440001),  // bottom right corner
-    LatLng(40.64101637820578, -8.641803370634964),  // top right corner
-    LatLng(40.64406001340473, -8.641126114819752),  // top left corner
+    LatLng(40.6399927705059, -8.655116460602876), // extra
+    LatLng(40.63749526174772, -8.652744098440001), // bottom right corner
+    LatLng(40.64101637820578, -8.641803370634964), // top right corner
+    LatLng(40.64406001340473, -8.641126114819752), // top left corner
   ];
   List<LatLng> polygonPointsFabrica = [
-    LatLng(40.64101637820578, -8.641803370634964),  // top left corner
-    LatLng(40.63749526174772, -8.652744098440001),  // bottom left corner
-    LatLng(40.63338985277366, -8.648786538128617),  // extra
-    LatLng(40.63272744890467, -8.64855518938427),   // extra
-    LatLng(40.63066400728303, -8.653815495400446),  // extra
-    LatLng(40.62452855358944, -8.64976460361052),   // bottom right corner
+    LatLng(40.64101637820578, -8.641803370634964), // top left corner
+    LatLng(40.63749526174772, -8.652744098440001), // bottom left corner
+    LatLng(40.63338985277366, -8.648786538128617), // extra
+    LatLng(40.63272744890467, -8.64855518938427), // extra
+    LatLng(40.63066400728303, -8.653815495400446), // extra
+    LatLng(40.62452855358944, -8.64976460361052), // bottom right corner
     LatLng(40.630406337092076, -8.642941462098724), // top right corner
   ];
 
@@ -221,8 +222,8 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: GoogleMap(
-        initialCameraPosition:
-            CameraPosition(target: LatLng(40.62462395033636, -8.695136038482696), zoom: 12),
+        initialCameraPosition: CameraPosition(
+            target: LatLng(40.62462395033636, -8.695136038482696), zoom: 12),
         zoomControlsEnabled: true,
         myLocationButtonEnabled: false,
         myLocationEnabled: true,
@@ -234,12 +235,8 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Universidade de Aveiro",
-                "Description of the University",
-                'assets/ua.jpg',
-                "1"
-              );
+              _showMarkerPopup(context, "Universidade de Aveiro",
+                  "Description of the University", 'assets/ua.jpg', "1");
             },
           ),
           Marker(
@@ -248,27 +245,18 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Parque da Macaca",
-                "Description of the Parque",
-                'assets/macaca.jpg',
-                "2"
-              );
+              _showMarkerPopup(context, "Parque da Macaca",
+                  "Description of the Parque", 'assets/macaca.jpg', "2");
             },
           ),
-          
           Marker(
             markerId: MarkerId("3"),
             position: LatLng(40.64519314854355, -8.6627333933357),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Salinas de Aveiro",
-                "Description of the Salinas",
-                'assets/salinas.jpg', 
-                "3"
-              );
+              _showMarkerPopup(context, "Salinas de Aveiro",
+                  "Description of the Salinas", 'assets/salinas.jpg', "3");
             },
           ),
           Marker(
@@ -277,12 +265,8 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Paredão da Barra",
-                "Description of the Paredão",
-                'assets/paredão.jpg',
-                "4"
-              );
+              _showMarkerPopup(context, "Paredão da Barra",
+                  "Description of the Paredão", 'assets/paredao.jpg', "4");
             },
           ),
           Marker(
@@ -291,12 +275,12 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Casas da Costa Nova",
-                "Description of the Casas da Costa Nova",
-                'assets/casas.jpeg',
-                "5"
-              );
+              _showMarkerPopup(
+                  context,
+                  "Casas da Costa Nova",
+                  "Description of the Casas da Costa Nova",
+                  'assets/casas.jpeg',
+                  "5");
             },
           ),
           Marker(
@@ -305,27 +289,22 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Posto de Observação da Marinha de Santiago",
-                "Description of the Posto de Observação",
-                'assets/posto.jpg',
-                "6"
-              );
+              _showMarkerPopup(
+                  context,
+                  "Posto de Observação da Marinha de Santiago",
+                  "Description of the Posto de Observação",
+                  'assets/posto.jpg',
+                  "6");
             },
           ),
-          
           Marker(
             markerId: MarkerId("7"),
             position: LatLng(40.6426890118189, -8.655488216087377),
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Praça do Peixe",
-                "Description of the Praça",
-                'assets/praça.jpg',
-                "7"
-              );
+              _showMarkerPopup(context, "Praça do Peixe",
+                  "Description of the Praça", 'assets/praça.jpg', "7");
             },
           ),
           Marker(
@@ -334,12 +313,8 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Ponte do laço",
-                "Description of the Ponte",
-                'assets/laços.jpg',
-                "8"
-              );
+              _showMarkerPopup(context, "Ponte do laço",
+                  "Description of the Ponte", 'assets/laços.jpg', "8");
             },
           ),
           Marker(
@@ -348,73 +323,73 @@ class MainPage extends StatelessWidget {
             icon: BitmapDescriptor.defaultMarkerWithHue(
                 BitmapDescriptor.hueAzure),
             onTap: () {
-              _showMarkerPopup(context, 
-                "Antiga Fábrica",
-                "Description of the Antiga Fábrica",
-                'assets/fabrica.jpg',
-                "9"
-              );
+              _showMarkerPopup(
+                  context,
+                  "Antiga Fábrica",
+                  "Description of the Antiga Fábrica",
+                  'assets/fabrica.jpg',
+                  "9");
             },
           ),
         },
         polygons: {
-          if(appState.isUnlocked["1"] == false)
+          if (appState.isUnlocked["1"] == false)
             Polygon(
               polygonId: PolygonId("1"),
               points: polygonPointsUni,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["2"] == false)
+          if (appState.isUnlocked["2"] == false)
             Polygon(
               polygonId: PolygonId("2"),
               points: polygonPointsParqueMacaca,
               fillColor: Colors.grey,
-              strokeWidth: 2, 
+              strokeWidth: 2,
             ),
-          if(appState.isUnlocked["3"] == false)
+          if (appState.isUnlocked["3"] == false)
             Polygon(
               polygonId: PolygonId("3"),
               points: polygonPointsSalinas,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["4"] == false)
+          if (appState.isUnlocked["4"] == false)
             Polygon(
               polygonId: PolygonId("4"),
               points: polygonPointsBarra,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["5"] == false)
+          if (appState.isUnlocked["5"] == false)
             Polygon(
               polygonId: PolygonId("5"),
               points: polygonPointsCostaNova,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["6"] == false)
+          if (appState.isUnlocked["6"] == false)
             Polygon(
               polygonId: PolygonId("6"),
               points: polygonPointsPassadicos,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["7"] == false)
+          if (appState.isUnlocked["7"] == false)
             Polygon(
               polygonId: PolygonId("7"),
               points: polygonPointsPraca,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["8"] == false)
+          if (appState.isUnlocked["8"] == false)
             Polygon(
               polygonId: PolygonId("8"),
               points: polygonPointsPontes,
               fillColor: Colors.grey,
               strokeWidth: 2,
             ),
-          if(appState.isUnlocked["9"] == false)
+          if (appState.isUnlocked["9"] == false)
             Polygon(
               polygonId: PolygonId("9"),
               points: polygonPointsFabrica,
